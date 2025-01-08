@@ -1,19 +1,28 @@
+<script setup>
+import { ref } from 'vue'
+
+const validPhoneNumber = ref(false)
+function validatePhoneNumber(e) {
+    console.log(e.target.value)
+    validPhoneNumber.value = !validPhoneNumber.value
+}
+
+</script>
+
 <template>
     <div>
       <h1>Register</h1>
       <form>
-        <input type="text" />
-        <input type="submit" value="Send OTP" />
-      </form>
+        <input type="text" class="text-input" @input="validatePhoneNumber" />
+        <input type="submit" value="Send OTP"  :disabled="!validPhoneNumber" />
+    </form>
     </div>
   </template>
   
   <style>
-  @media (min-width: 1024px) {
-    .about {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
+
+  .text-input {
+    border-radius: 5px;
   }
+  
   </style>
