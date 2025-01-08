@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue'
+import api  from '../api/Api.vue'
+import axios from 'axios'
 
 const validPhoneNumber = ref(false)
 const errorText = ref('')
@@ -56,14 +58,22 @@ function validatePhoneNumber(e) {
     return
 }
 
+async function sendOTP(e)  {
+    e.preventDefault()
+    // api.get('/test')
+
+    let response = await axios.get('https://www.randomnumberapi.com/api/v1.0/random?min=100000&max=999999')
+    console.log(response)
+}
+
 </script>
 
 <template>
     <div>
       <h1>Register</h1>
-      <form>
+      <form @submit="sendOTP">
         <input type="text" class="text-input" @input="validatePhoneNumber" />
-        <input type="submit" value="Send OTP"  :disabled="!validPhoneNumber" />
+        <input type="submit" value="Send OTP" :disabled="!validPhoneNumber" />
       </form>
       <p class="error-text">
         {{ errorText }}
