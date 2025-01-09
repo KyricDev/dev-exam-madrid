@@ -104,6 +104,9 @@ async function sendOTP(e) {
     <p class="error-text">
       {{ errorText }}
     </p>
+    <p>
+      Already have an account?<RouterLink to="/login">Login</RouterLink>here
+    </p>
     <SubmitOTPDialog v-model:visible="dialogVisibility"></SubmitOTPDialog>
   </div>
 </template>
