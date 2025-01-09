@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import api from '../api/Api.vue'
 import axios from 'axios'
-import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import SubmitOTPDialog from '../components/dialogs/SubmitOTPDialog.vue'

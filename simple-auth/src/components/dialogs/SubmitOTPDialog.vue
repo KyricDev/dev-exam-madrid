@@ -17,7 +17,7 @@ function verifyOTP(e) {
   console.log(`${currentOTP} === ${entry.value}`)
   if (currentOTP.toString() === entry.value.toString()) {
     errorText.value = ''
-    router.push('/')
+    router.push('/set-credential')
     return;
   }
 
