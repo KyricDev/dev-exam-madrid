@@ -20,14 +20,12 @@ function verifyOTP(e) {
     return
   }
 
-
   errorText.value = 'Incorrect OTP. Please Try Again.'
 }
-
 </script>
 
 <template>
-  <Dialog modal header="Enter OTP" class="dialog" dismissable-mask @after-hide="errorText=''" >
+  <Dialog modal header="Enter OTP" class="dialog" dismissable-mask @after-hide="errorText = ''">
     <InputText type="text" class="text-input" v-model="entry" />
     <div class="gap"></div>
     <Button label="Submit" @click="verifyOTP" fluid />
