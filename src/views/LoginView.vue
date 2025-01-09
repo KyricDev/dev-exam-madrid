@@ -45,6 +45,11 @@ function signIn(e) {
         <InputText v-model="username" placeholder="Username"></InputText>
         <Password v-model="password" placeholder="Password" toggleMask :feedback="false"></Password>
         <Button type="submit" label="Submit"></Button>
-        <p class="error-text">{{ errorText }}</p>
+        <p> 
+            Don't have an account?
+            <RouterLink to="/register">Register</RouterLink>
+            here
+        </p>
+            <p class="error-text">{{ errorText }}</p>
     </form>
 </template>
