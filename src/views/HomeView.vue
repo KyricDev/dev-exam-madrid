@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import { useAuthStore } from '@/stores/authentication';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <h1>Hello, {{ useAuthStore().currentUser }}</h1>
 </template>

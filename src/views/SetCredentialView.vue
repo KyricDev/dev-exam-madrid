@@ -4,10 +4,12 @@ import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import { ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router';
 
 const password = ref('')
 const confirmPassword = ref('')
 const username = ref('')
+const router = useRouter()
 
 const errorText = ref('')
 
@@ -50,6 +52,16 @@ async function setCredentials(e) {
     errorText.value = 'Password Is Too Weak'
     return
   }
+
+  const existingUser = localStorage.getItem(username.value)
+  console.log(existingUser)
+  if (existingUser !== null) {
+    errorText.value = 'User Already Exists'
+    return
+  }
+
+  localStorage.setItem(username.value, password.value)
+  router.push('/login')
 
   errorText.value = ''
   return
