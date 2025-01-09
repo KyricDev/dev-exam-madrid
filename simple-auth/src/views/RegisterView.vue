@@ -6,6 +6,7 @@ import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import SubmitOTPDialog from '../components/dialogs/SubmitOTPDialog.vue'
+import { useOTPStore } from '@/stores/otp'
 
 const validPhoneNumber = ref(false)
 const dialogVisibility = ref(false)
@@ -29,7 +30,7 @@ function validatePhoneNumber(e) {
       return
     }
 
-    if (phoneNumber.length !== 13) {
+    if (phoneNumber.length !== 12) {
       validPhoneNumber.value = false
       errorText.value = 'Invalid Phone Number Length'
       return
@@ -73,20 +74,25 @@ async function sendOTP(e) {
   e.preventDefault()
   // api.get('/test')
 
-  dialogVisibility.value = true;
+  dialogVisibility.value = true
   let response = await axios.get(
     // 'http://localhost:8080/api/test',
-    'https://www.randomnumberapi.com/api/v1.0/random?min=100000&max=999999',
+    // 'https://www.randomnumberapi.com/api/v1.0/randomnumber?min=100000&max=999999',
     // 'https://www.randomnumberapi.com/api/v1.0/random?min=100000&max=999999',
+
+    'https://manga-app-snowy.vercel.app/api/randomnumbergen',
+    // 'https://www.random.org/integers/?num=1&min=100000&max=999999&col=1&base=10&format=plain&rnd=new',
     {
-      // headers: {
-      // 	'Content-Type': 'application/json',
-      // },
-      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // mode: 'no-cors',
     },
   )
   // let response = await fetch("https://www.randomnumberapi.com/api/v1.0/random?min=100000&max=999999")
-  console.log(response.data[0])
+  const otp = response.data
+  const otpStore = useOTPStore()
+  otpStore.setOTP(otp)
 }
 </script>
 
@@ -95,12 +101,7 @@ async function sendOTP(e) {
     <h1>Register</h1>
     <form @submit="sendOTP">
       <InputText type="text" class="text-input" @input="validatePhoneNumber" />
-      <Button
-        type="submit"
-        label="Send OTP"
-        :disabled="!validPhoneNumber"
-        @click="sendOTP"
-      />
+      <Button type="submit" label="Send OTP" :disabled="!validPhoneNumber" @click="sendOTP" />
     </form>
     <p class="error-text">
       {{ errorText }}
