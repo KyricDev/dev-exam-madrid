@@ -95,20 +95,19 @@ async function sendOTP(e) {
 </script>
 
 <template>
-  <div>
-    <h1>Register</h1>
-    <form @submit="sendOTP">
-      <InputText placeholder="Phone Number" type="text" class="text-input" @input="validatePhoneNumber" />
-      <Button type="submit" label="Send OTP" :disabled="!validPhoneNumber" @click="sendOTP" />
-    </form>
-    <p class="error-text">
-      {{ errorText }}
-    </p>
-    <p>
-      Already have an account?<RouterLink to="/login">Login</RouterLink>here
-    </p>
-    <SubmitOTPDialog v-model:visible="dialogVisibility"></SubmitOTPDialog>
-  </div>
+  <h1>Register</h1>
+  <form @submit="sendOTP">
+    <label>Phone Number</label>
+    <InputText placeholder="Phone Number" type="text" class="text-input" @input="validatePhoneNumber" />
+    <Button type="submit" label="Send OTP" :disabled="!validPhoneNumber" @click="sendOTP" />
+  </form>
+  <p class="error-text">
+    {{ errorText }}
+  </p>
+  <p>
+    Already have an account?<RouterLink to="/login">Login</RouterLink>here
+  </p>
+  <SubmitOTPDialog v-model:visible="dialogVisibility"></SubmitOTPDialog>
 </template>
 
 <style>

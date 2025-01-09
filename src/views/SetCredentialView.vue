@@ -4,7 +4,7 @@ import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import { ref } from 'vue'
 import axios from 'axios'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const password = ref('')
 const confirmPassword = ref('')
@@ -70,13 +70,23 @@ async function setCredentials(e) {
 <template>
   <h1>Set Credentials</h1>
   <form @submit="setCredentials">
+    <label>Username</label>
     <InputText v-model="username" placeholder="Username"></InputText>
-    <Password v-model="password" placeholder="Password" toggleMask :feedback="false"></Password>
+    <label>Password</label>
+    <Password
+      v-model="password"
+      placeholder="Password"
+      toggleMask
+      :feedback="false"
+      fluid=""
+    ></Password>
+    <label>Confirm Password</label>
     <Password
       v-model="confirmPassword"
       placeholder="Confirm Password"
       toggleMask
       :feedback="false"
+      fluid
     ></Password>
     <p class="error-text">{{ errorText }}</p>
     <Button type="submit" label="Submit"></Button>

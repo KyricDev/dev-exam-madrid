@@ -42,8 +42,10 @@ function signIn(e) {
 <template>
     <h1>Login</h1>
     <form @submit="signIn">
+        <label>Username</label>
         <InputText v-model="username" placeholder="Username"></InputText>
-        <Password v-model="password" placeholder="Password" toggleMask :feedback="false"></Password>
+        <label>Password</label>
+        <Password v-model="password" placeholder="Password" toggleMask :feedback="false" fluid></Password>
         <Button type="submit" label="Submit"></Button>
         <p class="error-text">{{ errorText }}</p>
         <p> 
@@ -51,3 +53,9 @@ function signIn(e) {
         </p>
     </form>
 </template>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
