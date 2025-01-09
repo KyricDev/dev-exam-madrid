@@ -98,7 +98,7 @@ async function sendOTP(e) {
   <div>
     <h1>Register</h1>
     <form @submit="sendOTP">
-      <InputText type="text" class="text-input" @input="validatePhoneNumber" />
+      <InputText placeholder="Phone Number" type="text" class="text-input" @input="validatePhoneNumber" />
       <Button type="submit" label="Send OTP" :disabled="!validPhoneNumber" @click="sendOTP" />
     </form>
     <p class="error-text">
