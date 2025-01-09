@@ -3,18 +3,21 @@ import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import { useOTPStore } from '@/stores/otp'
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-const entry = ref('');
-const errorText = ref('');
+const entry = ref('')
+const errorText = ref('')
+const router = useRouter()
 
 function verifyOTP(e) {
   const otpStore = useOTPStore()
 
-  const currentOTP = otpStore.currentOTP[0];
-  console.log(`${currentOTP} === ${entry.value}`);
+  const currentOTP = otpStore.currentOTP[0]
+  console.log(`${currentOTP} === ${entry.value}`)
   if (currentOTP.toString() === entry.value.toString()) {
-    errorText.value = '';
+    errorText.value = ''
+    router.push('/')
     return;
   }
 
