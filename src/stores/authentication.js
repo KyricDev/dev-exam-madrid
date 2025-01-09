@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useAuthStore = defineStore('otp', () => {
+export const useAuthStore = defineStore('userAuth', () => {
   const currentUser = ref(null)
   function setUser(user) {
     currentUser.value = user
