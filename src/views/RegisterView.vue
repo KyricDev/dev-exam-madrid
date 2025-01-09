@@ -105,12 +105,12 @@ async function sendOTP(e) {
     {{ errorText }}
   </p>
   <p>
-    Already have an account?<RouterLink to="/login">Login</RouterLink>here
+    Already have an account?<RouterLink to="/login">Login here</RouterLink>
   </p>
   <SubmitOTPDialog v-model:visible="dialogVisibility"></SubmitOTPDialog>
 </template>
 
-<style>
+<style scoped>
 .text-input {
   border-radius: 5px;
 }
@@ -118,5 +118,13 @@ async function sendOTP(e) {
 .error-text {
   height: 25px;
   color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 180px;
+  justify-content: space-evenly;
 }
 </style>

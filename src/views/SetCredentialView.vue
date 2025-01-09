@@ -92,3 +92,17 @@ async function setCredentials(e) {
     <Button type="submit" label="Submit"></Button>
   </form>
 </template>
+
+<style scoped>
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  justify-content: space-evenly;
+}
+.error-text {
+  height: 25px;
+  color: red;
+}
+</style>
