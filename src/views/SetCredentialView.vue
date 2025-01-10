@@ -54,7 +54,6 @@ async function setCredentials(e) {
   }
 
   const existingUser = localStorage.getItem(username.value)
-  console.log(existingUser)
   if (existingUser !== null) {
     errorText.value = 'User Already Exists'
     return
