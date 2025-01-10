@@ -31,3 +31,28 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Locally Run the App
+
+To locally run the app:
+1. Clone the repository to your chosen directory
+```sh
+git clone https://github.com/KyricDev/dev-exam-madrid.git
+```
+
+2. Change directories to the repository
+```sh
+cd dev-exam-madrid
+```
+
+3. Install necessary packages
+```sh
+npm install
+```
+
+4. Run a local developer build
+```sh
+npm run dev
+```
+
+5. Navigate to your browser using the URL provided in the CLI
