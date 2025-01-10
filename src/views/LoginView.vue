@@ -31,8 +31,9 @@ function signIn(e) {
     life: 5000,
   })
 
-  const authStore = useAuthStore()
-  authStore.setUser(username.value)
+  // const authStore = useAuthStore()
+  // authStore.setUser(username.value)
+  sessionStorage.setItem('user', username.value)
   errorText.value = ''
   router.push('/home')
   return

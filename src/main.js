@@ -33,7 +33,23 @@ app.use(PrimeVue, {
           950: '{rose.950}',
         },
       },
+      components: {
+        dialog: {
+          colorScheme: {
+            light: {
+              root: {
+                background: '{neutral.900}',
+                color: '{neutral.50}',
+                borderColor: '{neutral.900}'
+              }
+            }
+          }
+        }
+      }
     }),
+    options: {
+      darkModeSelector: '.dark-mode',
+    }
   },
 })
 

@@ -25,7 +25,7 @@ function verifyOTP(e) {
 </script>
 
 <template>
-  <Dialog modal header="Enter OTP" class="dialog" dismissable-mask @after-hide="errorText = ''">
+  <Dialog modal header="Enter OTP" dismissable-mask @after-hide="errorText = ''">
     <InputText type="text" class="text-input" v-model="entry" />
     <div class="gap"></div>
     <Button label="Submit" @click="verifyOTP" fluid />
@@ -42,5 +42,8 @@ function verifyOTP(e) {
 .gap {
   width: 10px;
   height: 10px;
+}
+.text-white {
+  color: white;
 }
 </style>
